@@ -1,8 +1,22 @@
-env/*
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
 .env
+.venv
+env/
+venv/
+ENV/
 env.bak/
-node_modules
+venv.bak/
+
+# Mac files
 .DS_Store
+
+# Node
+node_modules
 dist
 dist-ssr
 *.local
