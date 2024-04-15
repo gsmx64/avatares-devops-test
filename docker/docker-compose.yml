@@ -1,0 +1,29 @@
+version: '3.1'
+
+services:
+
+  avatares-devops-api:
+    container_name: avatares-devops-api
+    env_file:
+      - ./api/.env
+      - ./api/.development.env
+    build:
+      context: .
+      dockerfile: ./DockerfileApi
+    ports:
+      - 5000:4001
+    restart: always
+
+  avatares-devops-web:
+    container_name: avatares-devops-web
+    env_file:
+      - ./web/.env
+      - ./web/.development.env
+    depends_on:
+      - api
+    build:
+      context: .
+      dockerfile: ./DockerfileWeb
+    ports:
+      - 5173:4000
+    restart: always

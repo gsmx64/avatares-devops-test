@@ -1,0 +1,15 @@
+FROM python:3
+
+RUN .env.sample .env
+
+RUN sed -i "s/localhost/avatares-devops-web/g" .env
+
+COPY ../api /app
+
+RUN pip install -r requirements.txt
+
+RUN source .env
+
+EXPOSE 5000
+
+CMD [ "python -m flask run"]
